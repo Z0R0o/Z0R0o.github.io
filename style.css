@@ -10,7 +10,7 @@
 
 body {
   font-family: 'Inter', sans-serif;
-  background-color: #0e0e0e;
+  background: linear-gradient(45deg, #111, #222);
   color: #f0f0f0;
   overflow-x: hidden;
   line-height: 1.6;
@@ -25,15 +25,8 @@ body {
   height: 100vh;
   background: url('assets/bg.png') no-repeat center center/cover;
   z-index: -1;
-  opacity: 0.2;
-  filter: blur(4px);
-}
-
-/* Section Layout */
-section {
-  padding: 4rem 1.5rem;
-  max-width: 1000px;
-  margin: auto;
+  opacity: 0.3;
+  filter: blur(5px);
 }
 
 /* Hero Section */
@@ -46,27 +39,32 @@ section {
   background: rgba(14, 14, 14, 0.7);
   backdrop-filter: blur(12px);
   border-radius: 12px;
+  position: relative;
+  overflow: hidden;
 }
 
 .hero .content {
   display: flex;
   flex-direction: column;
   align-items: center;
+  z-index: 2;
 }
 
 .hero .content h1 {
-  font-size: 3.2rem;
+  font-size: 4rem;
   font-weight: 900;
   margin: 1rem 0;
   color: #00ffc3;
-  text-shadow: 0 0 10px #00ffc388;
+  text-shadow: 0 0 20px #00ffc388;
+  animation: fadeIn 1.2s ease-in-out;
 }
 
 .hero .content p {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   margin-bottom: 2rem;
   color: #bfbfbf;
   max-width: 700px;
+  animation: fadeIn 1.5s ease-in-out;
 }
 
 /* Profile Picture */
@@ -76,35 +74,37 @@ section {
   border-radius: 50%;
   border: 4px solid #00ffc3;
   object-fit: cover;
-  box-shadow: 0 0 20px #00ffc340;
-  transition: transform 0.3s;
+  box-shadow: 0 0 30px #00ffc340;
+  transition: transform 0.3s, box-shadow 0.3s ease;
 }
+
 .pfp:hover {
-  transform: scale(1.05);
+  transform: scale(1.1);
+  box-shadow: 0 0 40px #00ffc3;
 }
 
 /* Buttons */
 .btn-group {
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
   flex-wrap: wrap;
   justify-content: center;
 }
 
 .btn {
-  padding: 0.75rem 1.5rem;
+  padding: 1rem 2rem;
   background-color: #00ffc3;
   color: #000;
   font-weight: 600;
   text-decoration: none;
-  border-radius: 8px;
+  border-radius: 10px;
   transition: all 0.3s ease;
-  box-shadow: 0 0 10px #00ffc340;
+  box-shadow: 0 0 20px #00ffc340;
 }
 
 .btn:hover {
   background-color: #0affd1;
-  transform: scale(1.05);
+  transform: translateY(-5px);
 }
 
 .btn.outline {
@@ -115,60 +115,60 @@ section {
 
 .btn.outline:hover {
   background-color: #00ffc310;
-  box-shadow: 0 0 12px #00ffc360;
+  box-shadow: 0 0 15px #00ffc360;
 }
 
 /* Section Headings */
 .about h2,
 .projects h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
   color: #00ffc3;
 }
 
 .about p {
   color: #ccc;
-  font-size: 1rem;
+  font-size: 1.1rem;
   max-width: 700px;
 }
 
 /* Project Grid */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
   margin-top: 2rem;
 }
 
 .card {
   background-color: rgba(26, 26, 26, 0.9);
-  padding: 1.5rem;
+  padding: 2rem;
   border-radius: 12px;
-  transition: 0.3s ease;
-  box-shadow: 0 0 12px #00000055;
+  transition: 0.4s ease;
+  box-shadow: 0 0 15px #00000055;
 }
 
 .card:hover {
-  background-color: #222;
-  transform: translateY(-5px);
+  background-color: #333;
+  transform: translateY(-8px);
 }
 
 .card h3 {
   color: #00ffc3;
-  font-size: 1.25rem;
+  font-size: 1.4rem;
   margin-bottom: 0.5rem;
 }
 
 .card p {
   color: #aaa;
-  font-size: 0.95rem;
+  font-size: 1rem;
 }
 
 /* Footer */
 footer {
   text-align: center;
-  padding: 2rem;
-  font-size: 0.9rem;
+  padding: 2.5rem;
+  font-size: 1rem;
   color: #777;
   background-color: rgba(10, 10, 10, 0.9);
   margin-top: 4rem;
@@ -186,4 +186,16 @@ footer {
 .show {
   opacity: 1 !important;
   transform: translateY(0) !important;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
