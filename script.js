@@ -1,24 +1,31 @@
-// script.js - Zoro's Portfolio
+// script.js
 
-// Smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', e => {
-    e.preventDefault();
-    document.querySelector(anchor.getAttribute('href')).scrollIntoView({
-      behavior: 'smooth'
-    });
-  });
-});
-
-// Fade in elements on scroll
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('show');
+// Scroll reveal logic
+const reveals = document.querySelectorAll('.card, .about, .projects');
+function revealOnScroll() {
+  for (const el of reveals) {
+    const top = el.getBoundingClientRect().top;
+    if (top < window.innerHeight - 100) {
+      el.classList.add('show');
     }
-  });
-}, {
-  threshold: 0.1
-});
+  }
+}
+window.addEventListener('scroll', revealOnScroll);
+window.addEventListener('load', revealOnScroll);
 
-document.querySelectorAll('.card, .about, .projects').forEach(el => observer.observe(el));
+// Background audio setup
+let audioInitialized = false;
+const audio = document.getElementById('bg-audio');
+
+function initAudioPlayback() {
+  if (!audioInitialized) {
+    audio.volume = 0.4;
+    audio.play().catch(() => {
+      console.warn("Audio blocked, waiting for user interaction...");
+    });
+    audioInitialized = true;
+  }
+}
+
+document.body.addEventListener('click', initAudioPlayback);
+document.body.addEventListener('touchstart', initAudioPlayback);
