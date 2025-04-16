@@ -29,3 +29,7 @@ function initAudioPlayback() {
 
 document.body.addEventListener('click', initAudioPlayback);
 document.body.addEventListener('touchstart', initAudioPlayback);
+
+// Optional: Discord Rich Presence integration (if using Discord bot backend)
+// Example of how you can send a rich presence using discord.js (Node.js backend)
+// See Discord Developer Docs for the implementation on your backend side.
