@@ -12,28 +12,54 @@ body {
   font-family: 'Inter', sans-serif;
   background-color: #0e0e0e;
   color: #f0f0f0;
+  overflow-x: hidden;
   line-height: 1.6;
+  position: relative;
+  z-index: 1;
 }
 
+/* Background Overlay */
+.bg-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url('assets/bg.png') no-repeat center center/cover;
+  z-index: -1;
+  opacity: 0.2;
+  filter: blur(4px);
+}
+
+/* Sections */
 section {
   padding: 4rem 1.5rem;
   max-width: 1000px;
   margin: auto;
 }
 
+/* Hero Section */
 .hero {
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
   text-align: center;
-  background: linear-gradient(145deg, #121212, #1e1e1e);
+  background: rgba(14, 14, 14, 0.6);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+}
+
+.hero .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .hero .content h1 {
   font-size: 3rem;
   font-weight: 900;
-  margin-bottom: 1rem;
+  margin: 1rem 0;
   color: #00ffc3;
 }
 
@@ -43,6 +69,17 @@ section {
   color: #bfbfbf;
 }
 
+/* Profile Picture */
+.pfp {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 4px solid #00ffc3;
+  object-fit: cover;
+  box-shadow: 0 0 20px #00ffc360;
+}
+
+/* Button */
 .btn {
   display: inline-block;
   padding: 0.75rem 1.5rem;
@@ -59,6 +96,7 @@ section {
   transform: scale(1.05);
 }
 
+/* About & Projects */
 .about h2,
 .projects h2 {
   font-size: 2rem;
@@ -72,6 +110,7 @@ section {
   max-width: 700px;
 }
 
+/* Grid Layout */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -80,7 +119,7 @@ section {
 }
 
 .card {
-  background-color: #1a1a1a;
+  background-color: rgba(26, 26, 26, 0.9);
   padding: 1.5rem;
   border-radius: 12px;
   transition: 0.3s ease;
@@ -103,12 +142,14 @@ section {
   font-size: 0.95rem;
 }
 
+/* Footer */
 footer {
   text-align: center;
   padding: 2rem;
   font-size: 0.9rem;
   color: #777;
-  background-color: #0a0a0a;
+  background-color: rgba(10, 10, 10, 0.9);
+  margin-top: 4rem;
 }
 
 /* Scroll reveal animations */
