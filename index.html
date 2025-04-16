@@ -1,38 +1,62 @@
-<!DOCTYPE html><html lang="en">
+<!-- index.html - Zoro's Portfolio -->
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Zoro's Freelance Developer Portfolio">
-  <title>Zoro | Freelance Dev</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Zoro | Dev Portfolio</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
+
+  <!-- Background image -->
+  <div class="bg-overlay"></div>
+
+  <!-- Hero Section -->
   <section class="hero">
     <div class="content">
+      <img src="assets/pfp.png" alt="Zoro PFP" class="pfp"/>
       <h1>Zoro</h1>
-      <p>Pro Developer | 4+ Yrs XP | Python, HTML, CSS, Java</p>
-      <a href="https://discord.com/users/1357257822571855986" class="btn">Contact on Discord</a>
+      <p>Pro Dev/Programmer | 4+ Years | Python, HTML, CSS, Java</p>
+      <a href="#projects" class="btn">View My Work</a>
     </div>
-  </section>  <section class="about">
+  </section>
+
+  <!-- About Section -->
+  <section class="about">
     <h2>About Me</h2>
-    <p>I'm a Discord-dev-turned-freelancer with 4 years of battle-tested experience building bots, tools, and full-stack apps. I specialize in Python, but I also slay with HTML, CSS, and Java.</p>
-  </section>  <section class="projects">
+    <p>I’m always building, breaking and automating stuff. Mostly in Python and web tech. Always online on Discord — <strong>Zoro#0001</strong> or ID: 1357257822571855986</p>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="projects" id="projects">
     <h2>Projects</h2>
     <div class="grid">
       <div class="card">
-        <h3>Discord Bot Army</h3>
-        <p>Fleet of custom bots made for community servers and automation.</p>
+        <h3>Bot Army</h3>
+        <p>Made 10+ bots for Discord moderation, games, AI, economy and more.</p>
       </div>
       <div class="card">
-        <h3>Freelance Hub</h3>
-        <p>Backend system built in Python + Firebase to handle freelance clients and invoices.</p>
+        <h3>Game Overlay</h3>
+        <p>Custom overlay for in-game stats using Java and browser tech.</p>
       </div>
       <div class="card">
-        <h3>Game Overlay UI</h3>
-        <p>Slick Java-based overlay for real-time game analytics + chat.</p>
+        <h3>Web Tools</h3>
+        <p>Automation dashboards for productivity, gaming, and dev tools.</p>
       </div>
     </div>
-  </section>  <footer>
-    <p>Built with grind by Zoro. Online 24/7 on Discord.</p>
-  </footer>  <script src="script.js"></script></body>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Zoro | All Rights Reserved
+  </footer>
+
+  <!-- Hidden Audio -->
+  <audio id="bg-audio" src="assets/bg-track.mp3" preload="auto"></audio>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
 </html>
