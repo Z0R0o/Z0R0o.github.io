@@ -1,4 +1,7 @@
-/* General Reset */
+/* style.css - Zoro's Portfolio */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -11,9 +14,6 @@ body {
   color: #f0f0f0;
   overflow-x: hidden;
   line-height: 1.6;
-  padding: 0;
-  height: 100%;
-  width: 100%;
 }
 
 /* Background Image */
@@ -48,16 +48,15 @@ body {
   flex-direction: column;
   align-items: center;
   z-index: 2;
-  text-align: center;
 }
 
 .hero .content h1 {
-  font-size: 4.5rem;
+  font-size: 4rem;
   font-weight: 900;
   margin: 1rem 0;
   color: #00ffc3;
   text-shadow: 0 0 20px #00ffc388;
-  animation: fadeIn 1.5s ease-in-out;
+  animation: fadeIn 1.2s ease-in-out;
 }
 
 .hero .content p {
@@ -65,7 +64,7 @@ body {
   margin-bottom: 2rem;
   color: #bfbfbf;
   max-width: 700px;
-  animation: fadeIn 2s ease-in-out;
+  animation: fadeIn 1.5s ease-in-out;
 }
 
 /* Profile Picture */
@@ -90,7 +89,6 @@ body {
   gap: 1.5rem;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 20px;
 }
 
 .btn {
@@ -126,25 +124,20 @@ body {
   font-size: 2.5rem;
   margin-bottom: 1.5rem;
   color: #00ffc3;
-  text-align: center;
 }
 
 .about p {
   color: #ccc;
   font-size: 1.1rem;
   max-width: 700px;
-  margin: 0 auto;
-  text-align: center;
-  line-height: 1.7;
 }
 
-/* Service Cards & Project Grid */
+/* Project Grid */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
   margin-top: 2rem;
-  padding: 0 20px;
 }
 
 .card {
@@ -153,12 +146,7 @@ body {
   border-radius: 12px;
   transition: 0.4s ease;
   box-shadow: 0 0 15px #00000055;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-  min-height: 200px;
-  text-align: left;
+  cursor: pointer;
 }
 
 .card:hover {
@@ -177,14 +165,57 @@ body {
   font-size: 1rem;
 }
 
-/* Footer */
-footer {
+/* Modal Styles */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Black background with transparency */
+  overflow: auto;
+  padding-top: 60px;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #222;
+  margin: 5% auto;
+  padding: 20px;
+  border-radius: 12px;
+  width: 80%;
+  max-width: 900px;
   text-align: center;
-  padding: 2.5rem;
-  font-size: 1rem;
-  color: #777;
-  background-color: rgba(10, 10, 10, 0.9);
-  margin-top: 4rem;
+}
+
+.modal .media {
+  margin-top: 20px;
+}
+
+.modal .media img, .modal .media video {
+  max-width: 100%;
+  height: auto;
+  margin-top: 10px;
+}
+
+.close {
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #00ffc3;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 /* Scroll Reveal */
@@ -210,5 +241,11 @@ footer {
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .modal-content {
+    width: 90%;
   }
 }
