@@ -1,7 +1,4 @@
-/* style.css - Zoro's Portfolio */
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap');
-
+/* General Reset */
 * {
   margin: 0;
   padding: 0;
@@ -14,6 +11,9 @@ body {
   color: #f0f0f0;
   overflow-x: hidden;
   line-height: 1.6;
+  padding: 0;
+  height: 100%;
+  width: 100%;
 }
 
 /* Background Image */
@@ -48,15 +48,16 @@ body {
   flex-direction: column;
   align-items: center;
   z-index: 2;
+  text-align: center;
 }
 
 .hero .content h1 {
-  font-size: 4rem;
+  font-size: 4.5rem;
   font-weight: 900;
   margin: 1rem 0;
   color: #00ffc3;
   text-shadow: 0 0 20px #00ffc388;
-  animation: fadeIn 1.2s ease-in-out;
+  animation: fadeIn 1.5s ease-in-out;
 }
 
 .hero .content p {
@@ -64,7 +65,7 @@ body {
   margin-bottom: 2rem;
   color: #bfbfbf;
   max-width: 700px;
-  animation: fadeIn 1.5s ease-in-out;
+  animation: fadeIn 2s ease-in-out;
 }
 
 /* Profile Picture */
@@ -89,6 +90,7 @@ body {
   gap: 1.5rem;
   flex-wrap: wrap;
   justify-content: center;
+  margin-top: 20px;
 }
 
 .btn {
@@ -124,20 +126,25 @@ body {
   font-size: 2.5rem;
   margin-bottom: 1.5rem;
   color: #00ffc3;
+  text-align: center;
 }
 
 .about p {
   color: #ccc;
   font-size: 1.1rem;
   max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 1.7;
 }
 
-/* Project Grid */
+/* Service Cards & Project Grid */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
   margin-top: 2rem;
+  padding: 0 20px;
 }
 
 .card {
@@ -146,6 +153,12 @@ body {
   border-radius: 12px;
   transition: 0.4s ease;
   box-shadow: 0 0 15px #00000055;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  min-height: 200px;
+  text-align: left;
 }
 
 .card:hover {
