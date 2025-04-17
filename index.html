@@ -1,64 +1,62 @@
-<!-- index.html - Zoro's Portfolio -->
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Zoro | Dev Portfolio</title>
-  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
 </head>
 <body>
-
   <!-- Background Image -->
-  <div class="bg-overlay"></div>
-
-  <!-- Hero Section -->
-  <section class="hero">
+  <div class="bg-overlay"></div>  <!-- Hero Section -->  <section class="hero">
     <div class="content">
-      <img src="assets/pfp.png" alt="Zoro PFP" class="pfp"/>
+      <img src="assets/pfp.png" alt="Zoro PFP" class="pfp" />
       <h1>Zoro</h1>
-      <p>Pro Developer & Programmer — 4+ Years of Python, HTML, CSS, Java</p>
+      <p>Automation Architect | Discord Bots | Full Stack Developer</p>
       <div class="btn-group">
         <a href="#projects" class="btn">View My Work</a>
         <a href="https://discord.com/users/1357257822571855986" target="_blank" class="btn outline">Contact Me</a>
       </div>
     </div>
-  </section>
-
-  <!-- About Section -->
-  <section class="about">
+  </section>  <!-- About Section -->  <section class="about">
     <h2>About Me</h2>
-    <p>I’m a full-stack automation-focused dev. Discord bots, web tools, game overlays — you name it, I build it. Ping me anytime, I’m active 24/7 on Discord.</p>
-  </section>
-
-  <!-- Projects Section -->
-  <section class="projects" id="projects">
+    <p>I'm a full-stack automation-focused dev. Discord bots, web tools, game overlays — I build it all. 4+ years deep with Python, JavaScript, Java, and web tech. Always active on Discord.</p>
+  </section>  <!-- Services Section -->  <section class="projects" id="services">
+    <h2>Services</h2>
+    <div class="grid">
+      <div class="card">
+        <h3><i class="ri-bug-line"></i> Custom Discord Bots</h3>
+        <p>Fully custom bots for moderation, games, tickets, APIs, and automation.</p>
+      </div>
+      <div class="card">
+        <h3><i class="ri-window-line"></i> Dashboards & Tools</h3>
+        <p>Custom web dashboards with real-time data, user auth, and bot integration.</p>
+      </div>
+      <div class="card">
+        <h3><i class="ri-code-s-slash-line"></i> Game Overlays</h3>
+        <p>Live stats, HUDs, and browser-layer overlays for competitive setups.</p>
+      </div>
+    </div>
+  </section>  <!-- Projects Section -->  <section class="projects" id="projects">
     <h2>Projects</h2>
     <div class="grid">
       <div class="card">
         <h3>Bot Army</h3>
-        <p>Advanced bots for moderation, games, AI chat, ticket systems and more.</p>
+        <p>Multi-purpose Discord bots for moderation, economy, and AI chat.</p>
       </div>
       <div class="card">
         <h3>Game Overlay</h3>
-        <p>Live stats HUD built using Java and browser layers with full customization.</p>
+        <p>Live Java-based HUD with full game and player stat customization.</p>
       </div>
       <div class="card">
         <h3>Web Tools</h3>
-        <p>Dashboards and automation tools for Discord, Twitch, and productivity workflows.</p>
+        <p>Workflow automation tools for streamers, devs, and Discord mods.</p>
       </div>
     </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
+  </section>  <!-- Footer -->  <footer>
     &copy; 2025 Zoro | Built with brain and coffee
-  </footer>
+  </footer>  <!-- Audio --><audio id="bg-audio" src="assets/bg-track.mp3" preload="auto"></audio>
 
-  <!-- Audio -->
-  <audio id="bg-audio" src="assets/bg-track.mp3" preload="auto"></audio>
-
-  <!-- Script -->
-  <script src="script.js"></script>
-</body>
+  <!-- Script -->  <script src="script.js"></script></body>
 </html>
