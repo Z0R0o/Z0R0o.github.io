@@ -1,4 +1,24 @@
-// script.js
+// Open Modal
+function openModal(projectId) {
+  const modal = document.getElementById(projectId);
+  modal.style.display = "block";
+}
+
+// Close Modal
+function closeModal(projectId) {
+  const modal = document.getElementById(projectId);
+  modal.style.display = "none";
+}
+
+// Close the modal when the user clicks outside of the modal content
+window.onclick = function(event) {
+  const modals = document.querySelectorAll('.modal');
+  modals.forEach(modal => {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  });
+}
 
 // Scroll reveal logic
 const reveals = document.querySelectorAll('.card, .about, .projects');
@@ -29,7 +49,3 @@ function initAudioPlayback() {
 
 document.body.addEventListener('click', initAudioPlayback);
 document.body.addEventListener('touchstart', initAudioPlayback);
-
-// Optional: Discord Rich Presence integration (if using Discord bot backend)
-// Example of how you can send a rich presence using discord.js (Node.js backend)
-// See Discord Developer Docs for the implementation on your backend side.
