@@ -8,47 +8,38 @@
 </head>
 <body>
 
-  <!-- Background -->
   <div class="bg-overlay"></div>
 
-  <!-- Hero -->
   <section class="hero">
     <div class="content">
       <img src="assets/pfp.png" alt="Zoro PFP" class="pfp"/>
       <h1>Zoro</h1>
-      <p>4+ Yrs Dev Experience — HTML, Python, Java, CSS</p>
+      <p>Elite Dev | HTML, Java, Python, CSS — 4 Yrs Crafting Code that Hits Different</p>
       <div class="btn-group">
-        <a href="#categories" class="btn">Explore</a>
-        <a href="https://discord.com/users/1357257822571855986" target="_blank" class="btn outline">Contact</a>
+        <a href="#categories" class="btn">Explore Work</a>
+        <a href="https://discord.com/users/1357257822571855986" target="_blank" class="btn outline">Hit Me Up</a>
       </div>
     </div>
   </section>
 
-  <!-- About -->
   <section class="about">
     <h2>About Me</h2>
-    <p>
-      I’m Zoro — I write code like it’s war. 4 years in the trenches with full-stack dev, game integrations, Discord bots, web tools, and automation that bites. No fluff, just raw delivery. Ping me when you’re serious.
-    </p>
+    <p>I'm Zoro. I build cold-blooded, powerful automation systems, bots, tools, websites and game overlays. Been deep in the code game for 4+ years — if it runs on logic, I own it. Discord is my battlefield, but I push pixels and crunch backend like a machine. Looking for sharp dev work? I'm one ping away.</p>
   </section>
 
-  <!-- Categories -->
   <section class="categories" id="categories">
-    <h2>Projects by Category</h2>
-    <div class="category-grid">
-      <button class="category-btn" data-category="discord">Discord</button>
-      <button class="category-btn" data-category="website">Website</button>
-      <button class="category-btn" data-category="games">Games</button>
-      <button class="category-btn" data-category="tools">Tools</button>
+    <h2>Categories</h2>
+    <div class="btn-group">
+      <button class="btn outline category-btn" data-category="discord">Discord</button>
+      <button class="btn outline category-btn" data-category="website">Website</button>
+      <button class="btn outline category-btn" data-category="games">Games</button>
+      <button class="btn outline category-btn" data-category="tools">Tools</button>
     </div>
   </section>
 
-  <!-- Project Section -->
   <section class="projects" id="projects">
     <h2>Projects</h2>
-    <div class="grid" id="projectGrid">
-      <!-- Projects will be populated here -->
-    </div>
+    <div class="grid" id="projectGrid"></div>
   </section>
 
   <!-- Modal -->
@@ -57,19 +48,19 @@
       <span class="close-btn">&times;</span>
       <h3 id="modalTitle"></h3>
       <p id="modalDescription"></p>
-      <div class="media-slider" id="mediaSlider"></div>
+      <div class="slider-wrapper">
+        <button id="prevBtn" class="nav-btn">&#10094;</button>
+        <div class="media-slider" id="mediaSlider"></div>
+        <button id="nextBtn" class="nav-btn">&#10095;</button>
+      </div>
     </div>
   </div>
 
-  <!-- Footer -->
   <footer>
-    &copy; 2025 Zoro | Built from pure logic & fire
+    &copy; 2025 Zoro | No Sleep Till the Job’s Done
   </footer>
 
-  <!-- Audio -->
   <audio id="bg-audio" src="assets/bg-track.mp3" preload="auto"></audio>
-
-  <!-- Script -->
   <script src="script.js"></script>
 </body>
 </html>
