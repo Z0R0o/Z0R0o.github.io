@@ -27,7 +27,7 @@
   <!-- About Section -->
   <section class="about">
     <h2>About Me</h2>
-    <p>I’m a full-stack automation-focused dev. Discord bots, web tools, game overlays — you name it, I build it. Ping me anytime, I’m active 24/7 on Discord.</p>
+    <p>I’m Zoro — a pro coder with 4 years of experience in HTML, CSS, Python & Java and **MUCH MORE**. I craft discord bots, automation tools, games,  scraping tools and tons of other things that **works** — no fluff, just results. If you're serious about getting things done, you’re in the right place.</p>
   </section>
 
   <!-- Projects Section -->
@@ -38,12 +38,10 @@
         <h3>Bot Army</h3>
         <p>Advanced bots for moderation, games, AI chat, ticket systems and more.</p>
       </div>
-
       <div class="card" onclick="openModal('game-overlay')">
         <h3>Game Overlay</h3>
         <p>Live stats HUD built using Java and browser layers with full customization.</p>
       </div>
-
       <div class="card" onclick="openModal('web-tools')">
         <h3>Web Tools</h3>
         <p>Dashboards and automation tools for Discord, Twitch, and productivity workflows.</p>
@@ -51,42 +49,14 @@
     </div>
   </section>
 
-  <!-- Modal for Bot Army Project -->
-  <div class="modal" id="bot-army">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal('bot-army')">&times;</span>
-      <h3>Bot Army</h3>
-      <p>Advanced bots for moderation, games, AI chat, ticket systems, and more.</p>
-      <div class="media">
-        <img src="assets/bot-army-image1.png" alt="Bot Army" />
-        <video src="assets/bot-army-video.mp4" controls></video>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal for Game Overlay Project -->
-  <div class="modal" id="game-overlay">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal('game-overlay')">&times;</span>
-      <h3>Game Overlay</h3>
-      <p>Live stats HUD built using Java and browser layers with full customization.</p>
-      <div class="media">
-        <img src="assets/game-overlay-image.png" alt="Game Overlay" />
-        <video src="assets/game-overlay-video.mp4" controls></video>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal for Web Tools Project -->
-  <div class="modal" id="web-tools">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal('web-tools')">&times;</span>
-      <h3>Web Tools</h3>
-      <p>Dashboards and automation tools for Discord, Twitch, and productivity workflows.</p>
-      <div class="media">
-        <img src="assets/web-tools-image.png" alt="Web Tools" />
-        <video src="assets/web-tools-video.mp4" controls></video>
-      </div>
+  <!-- Modal Viewer -->
+  <div id="modal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img id="modal-img" class="modal-content" style="display:none;" />
+    <video id="modal-video" class="modal-content" controls style="display:none;"></video>
+    <div class="controls">
+      <button onclick="prevMedia()">‹</button>
+      <button onclick="nextMedia()">›</button>
     </div>
   </div>
 
