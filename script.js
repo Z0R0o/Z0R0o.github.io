@@ -1,91 +1,86 @@
-const modal = document.getElementById('modal');
-const modalImg = document.getElementById('modal-img');
-const modalVideo = document.getElementById('modal-video');
-
-const projectMedia = {
-  'bot-army': [
-    { type: 'img', src: 'assets/bot-army1.png' },
-    { type: 'img', src: 'assets/bot-army2.png' },
-    { type: 'video', src: 'assets/bot-army-demo.mp4' }
+const categories = {
+  discord: [
+    {
+      title: "Bot Army",
+      description: "Moderation, AI chat, games, ticketing — full-featured Discord bot suite.",
+      media: ["assets/discord1.png", "assets/discord2.mp4"]
+    }
   ],
-  'game-overlay': [
-    { type: 'img', src: 'assets/overlay1.png' },
-    { type: 'video', src: 'assets/overlay-demo.mp4' }
+  website: [
+    {
+      title: "Dashboard Portal",
+      description: "Custom panel for managing bots and analytics. Built using HTML/CSS/JS.",
+      media: ["assets/web1.png", "assets/web2.mp4"]
+    }
   ],
-  'web-tools': [
-    { type: 'img', src: 'assets/web1.png' },
-    { type: 'img', src: 'assets/web2.png' },
-    { type: 'video', src: 'assets/web-demo.mp4' }
+  games: [
+    {
+      title: "Live Game HUD",
+      description: "Overlay for game stats, designed for streamers and pro players.",
+      media: ["assets/game1.png", "assets/game2.mp4"]
+    }
+  ],
+  tools: [
+    {
+      title: "Automation Tools",
+      description: "Snappy CLI tools & scripts to boost productivity and uptime.",
+      media: ["assets/tool1.png", "assets/tool2.mp4"]
+    }
   ]
 };
 
-let currentMedia = [];
-let currentIndex = 0;
+const projectGrid = document.getElementById("projectGrid");
+const modal = document.getElementById("modal");
+const modalTitle = document.getElementById("modalTitle");
+const modalDescription = document.getElementById("modalDescription");
+const mediaSlider = document.getElementById("mediaSlider");
+const closeBtn = document.querySelector(".close-btn");
 
-function openModal(projectKey) {
-  currentMedia = projectMedia[projectKey];
-  currentIndex = 0;
-  updateModal();
-  modal.style.display = 'block';
-}
-
-function closeModal() {
-  modal.style.display = 'none';
-  modalImg.style.display = 'none';
-  modalVideo.style.display = 'none';
-  modalVideo.pause();
-}
-
-function updateModal() {
-  const item = currentMedia[currentIndex];
-
-  modalImg.style.display = 'none';
-  modalVideo.style.display = 'none';
-  modalVideo.pause();
-
-  if (item.type === 'img') {
-    modalImg.src = item.src;
-    modalImg.style.display = 'block';
-  } else if (item.type === 'video') {
-    modalVideo.src = item.src;
-    modalVideo.style.display = 'block';
-    modalVideo.load();
-    modalVideo.play();
-  }
-}
-
-function nextMedia() {
-  currentIndex = (currentIndex + 1) % currentMedia.length;
-  updateModal();
-}
-
-function prevMedia() {
-  currentIndex = (currentIndex - 1 + currentMedia.length) % currentMedia.length;
-  updateModal();
-}
-
-// Scroll Reveal
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('show');
-    }
+document.querySelectorAll(".category-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const category = btn.dataset.category;
+    projectGrid.innerHTML = "";
+    categories[category].forEach((project, idx) => {
+      const card = document.createElement("div");
+      card.classList.add("card");
+      card.innerHTML = `<h3>${project.title}</h3><p>${project.description}</p>`;
+      card.addEventListener("click", () => showModal(project));
+      projectGrid.appendChild(card);
+    });
   });
 });
 
-document.querySelectorAll('.card, .about, .projects').forEach((el) => observer.observe(el));
-
-// Background audio
-let audioInitialized = false;
-const audio = document.getElementById('bg-audio');
-
-function initAudioPlayback() {
-  if (!audioInitialized) {
-    audio.volume = 0.4;
-    audio.play().catch(() => console.warn("Audio blocked, waiting for interaction..."));
-    audioInitialized = true;
-  }
+function showModal(project) {
+  modalTitle.textContent = project.title;
+  modalDescription.textContent = project.description;
+  mediaSlider.innerHTML = "";
+  project.media.forEach(file => {
+    if (file.endsWith(".mp4")) {
+      const video = document.createElement("video");
+      video.src = file;
+      video.controls = true;
+      mediaSlider.appendChild(video);
+    } else {
+      const img = document.createElement("img");
+      img.src = file;
+      mediaSlider.appendChild(img);
+    }
+  });
+  modal.style.display = "flex";
 }
 
-document.body.addEventListener('click', initAudioPlayback);
-document.body.addEventListener('touchstart', initAudioPlayback);
+closeBtn.onclick = () => modal.style.display = "none";
+window.onclick = e => {
+  if (e.target == modal) modal.style.display = "none";
+};
+
+// Background Audio
+const audio = document.getElementById("bg-audio");
+let audioInitialized = false;
+document.body.addEventListener('click', () => {
+  if (!audioInitialized) {
+    audio.volume = 0.4;
+    audio.play().catch(() => {});
+    audioInitialized = true;
+  }
+});
