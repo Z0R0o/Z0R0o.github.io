@@ -1,8 +1,8 @@
 const categories = {
   discord: [
     {
-      title: "Bot Army",
-      description: "Moderation, AI chat, games, ticketing — full-featured Discord bot suite.",
+      title: "RNG game bot",
+      description: "Discord RNG Game Bot With Rich Presence, over 100 items, Requires 5 Message For 1 Roll.",
       media: ["assets/discord1.png", "assets/discord2.mp4"]
     }
   ],
