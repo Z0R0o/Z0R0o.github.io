@@ -1,117 +1,112 @@
-const projectGrid = document.getElementById("projectGrid");
+const projects = {
+  discord: [
+    {
+      title: "RNG Game Bot",
+      description: "Perfect RNG Game Bot With Over 100 Items,cooldown, messages requirements, auto chat purge, ETC.",
+      media: ["assets/bot1.png", "assets/bot2.mp4"]
+    }
+  ],
+  website: [
+    {
+      title: "Custom Web Dashboards",
+      description: "Live dashboards with automation & real-time UI.",
+      media: ["assets/web-1.png", "assets/web-2.mp4"]
+    }
+  ],
+  games: [
+    {
+      title: "Game Overlay",
+      description: "Live HUD built in Java + web techs.",
+      media: ["assets/game-1.png", "assets/game-2.mp4"]
+    }
+  ],
+  tools: [
+    {
+      title: "Auto Tools",
+      description: "Scripts for Discord, Twitch, and more automation.",
+      media: ["assets/tool-1.png", "assets/tool-2.mp4"]
+    }
+  ]
+};
+
+const categoryButtons = document.querySelectorAll(".category-btn");
+const projectList = document.getElementById("project-list");
 const modal = document.getElementById("modal");
-const modalTitle = document.getElementById("modalTitle");
-const modalDescription = document.getElementById("modalDescription");
-const mediaSlider = document.getElementById("mediaSlider");
+const modalTitle = document.getElementById("modal-title");
+const modalDescription = document.getElementById("modal-description");
+const mediaSlider = document.getElementById("media-slider");
 const closeBtn = document.querySelector(".close-btn");
 
-let currentIndex = 0;
-let currentMedia = [];
+let currentSlide = 0;
 
-const projects = [
-  {
-    title: "RNG game bot",
-    category: "discord",
-    description: "High-performance Discord Game bot with over 100 items to collect, perfect cooldown, messages requirement for rolls/spins, auto chat purge, and much more.",
-    media: ["assets/bot1.png", "assets/bot2.mp4"]
-  },
-  {
-    title: "Zoro Web",
-    category: "website",
-    description: "Clean & cold responsive landing sites, dashboards, panels, portfolios, you name it.",
-    media: ["assets/web1.png", "assets/web2.png"]
-  },
-  {
-    title: "HUD Game Overlay",
-    category: "games",
-    description: "Overlay system showing live stats, FPS, kill feed, built in Java & HTML layers.",
-    media: ["assets/game1.mp4", "assets/game2.png"]
-  },
-  {
-    title: "Automation Tools",
-    category: "tools",
-    description: "Custom automation for workflows — scrapers, alerts, triggers, Discord/Twitch APIs.",
-    media: ["assets/tool1.png", "assets/tool2.mp4"]
-  }
-];
+categoryButtons.forEach(btn => {
+  btn.addEventListener("click", () => {
+    const cat = btn.dataset.category;
+    renderProjects(cat);
+  });
+});
 
 function renderProjects(category) {
-  projectGrid.innerHTML = "";
-  const filtered = projects.filter(p => p.category === category);
-  filtered.forEach(p => {
+  projectList.innerHTML = "";
+  projects[category].forEach((proj, index) => {
     const card = document.createElement("div");
-    card.className = "card";
-    card.innerHTML = `<h3>${p.title}</h3><p>${p.description}</p>`;
-    card.addEventListener("click", () => showModal(p));
-    projectGrid.appendChild(card);
+    card.classList.add("card");
+    card.innerHTML = `<h3>${proj.title}</h3><p>${proj.description}</p>`;
+    card.addEventListener("click", () => showModal(proj));
+    projectList.appendChild(card);
   });
 }
 
 function showModal(project) {
   modalTitle.textContent = project.title;
   modalDescription.textContent = project.description;
-  mediaSlider.innerHTML = "";
-  currentMedia = [];
+  mediaSlider.innerHTML = `
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
+  `;
 
-  project.media.forEach(file => {
-    let el = file.endsWith(".mp4") ? document.createElement("video") : document.createElement("img");
-    el.src = file;
-    if (file.endsWith(".mp4")) el.controls = true;
-    el.style.display = "none";
-    currentMedia.push(el);
+  project.media.forEach((src, i) => {
+    const isVideo = src.endsWith(".mp4");
+    const el = isVideo ? document.createElement("video") : document.createElement("img");
+    el.src = src;
+    el.classList.add("slide");
+    if (isVideo) {
+      el.controls = true;
+    }
+    if (i === 0) el.style.display = "block";
     mediaSlider.appendChild(el);
   });
 
-  currentIndex = 0;
-  if (currentMedia.length > 0) currentMedia[0].style.display = "block";
-
+  currentSlide = 0;
   modal.style.display = "flex";
+
+  mediaSlider.querySelector(".prev").onclick = () => changeSlide(-1);
+  mediaSlider.querySelector(".next").onclick = () => changeSlide(1);
 }
 
-document.getElementById("prevBtn").addEventListener("click", () => {
-  if (!currentMedia.length) return;
-  currentMedia[currentIndex].style.display = "none";
-  currentIndex = (currentIndex - 1 + currentMedia.length) % currentMedia.length;
-  currentMedia[currentIndex].style.display = "block";
-});
-
-document.getElementById("nextBtn").addEventListener("click", () => {
-  if (!currentMedia.length) return;
-  currentMedia[currentIndex].style.display = "none";
-  currentIndex = (currentIndex + 1) % currentMedia.length;
-  currentMedia[currentIndex].style.display = "block";
-});
-
-closeBtn.addEventListener("click", () => modal.style.display = "none");
-
-// Category click logic
-document.querySelectorAll(".category-btn").forEach(btn => {
-  btn.addEventListener("click", () => {
-    const cat = btn.getAttribute("data-category");
-    renderProjects(cat);
-  });
-});
-
-// Scroll reveal (optional)
-const reveals = document.querySelectorAll('.card, .about, .projects');
-function revealOnScroll() {
-  for (const el of reveals) {
-    const top = el.getBoundingClientRect().top;
-    if (top < window.innerHeight - 100) {
-      el.classList.add('show');
-    }
-  }
+function changeSlide(direction) {
+  const slides = document.querySelectorAll(".slide");
+  slides[currentSlide].style.display = "none";
+  currentSlide = (currentSlide + direction + slides.length) % slides.length;
+  slides[currentSlide].style.display = "block";
 }
-window.addEventListener('scroll', revealOnScroll);
-window.addEventListener('load', revealOnScroll);
+
+closeBtn.addEventListener("click", () => {
+  modal.style.display = "none";
+});
+
+window.addEventListener("click", (e) => {
+  if (e.target === modal) modal.style.display = "none";
+});
 
 // Background audio
-let audioInitialized = false;
 const audio = document.getElementById('bg-audio');
+let audioInitialized = false;
+
 function initAudioPlayback() {
   if (!audioInitialized) {
     audio.volume = 0.4;
-    audio.play().catch(() => {});
+    audio.play().catch(() => console.warn("Audio blocked"));
     audioInitialized = true;
   }
 }
