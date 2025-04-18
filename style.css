@@ -208,4 +208,26 @@ body {
 @keyframes fadeIn {
   0% {
     opacity: 0;
-    transform: translateY(20px
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 5px #00ffc3, 0 0 10px #00ffc3, 0 0 20px #00ffc3;
+  }
+  50% {
+    text-shadow: 0 0 10px #00ffc3, 0 0 20px #00ffc3, 0 0 30px #00ffc3;
+  }
+  100% {
+    text-shadow: 0 0 5px #00ffc3, 0 0 10px #00ffc3, 0 0 20px #00ffc3;
+  }
+}
+
+.hero .content h1 {
+  animation: glow 1.5s infinite;
+}
