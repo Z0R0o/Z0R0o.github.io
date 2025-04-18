@@ -53,7 +53,7 @@ body {
   margin: 1rem 0;
   color: #00ffc3;
   text-shadow: 0 0 20px #00ffc388;
-  animation: fadeIn 1.2s ease-in-out;
+  animation: fadeIn 1.2s ease-in-out, glow 1.5s infinite alternate;
 }
 
 .hero .content p {
@@ -99,11 +99,13 @@ body {
   box-shadow: 0 0 20px #00ffc340;
   cursor: pointer;
   transform: translateY(0);
+  letter-spacing: 1px;
 }
 
 .btn:hover {
   background-color: #0affd1;
   transform: translateY(-5px);
+  box-shadow: 0 0 30px #0affd180;
 }
 
 .btn.outline {
@@ -117,17 +119,36 @@ body {
   box-shadow: 0 0 15px #00ffc360;
 }
 
+.project-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+
 .project-buttons button {
-  font-size: 1.2rem;
-  padding: 1rem 2rem;
+  font-size: 1.4rem;
+  padding: 1.2rem 2.4rem;
   margin: 0.5rem;
+  background-color: transparent;
+  border: 2px solid #00ffc3;
+  color: #00ffc3;
+  font-weight: bold;
+  border-radius: 50px;
+  text-transform: uppercase;
+  cursor: pointer;
+  letter-spacing: 2px;
   transition: all 0.3s ease;
+  box-shadow: 0 0 20px #00ffc340;
 }
 
 .project-buttons button:hover {
   background-color: #00ffc3;
   color: #111;
   transform: translateY(-5px);
+  box-shadow: 0 0 30px #00ffc380;
 }
 
 .project-buttons button:focus {
@@ -144,6 +165,7 @@ body {
   font-size: 2.5rem;
   margin-bottom: 2rem;
   color: #00ffc3;
+  text-shadow: 0 0 10px #00ffc388;
 }
 
 /* Modal */
@@ -229,5 +251,19 @@ body {
 }
 
 .hero .content h1 {
-  animation: glow 1.5s infinite;
+  animation: glow 1.5s infinite alternate;
+}
+
+/* Background Animation */
+@keyframes movingBackground {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+.bg-overlay {
+  animation: movingBackground 25s linear infinite;
 }
