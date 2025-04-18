@@ -15,7 +15,7 @@
   <section class="hero">
     <div class="content">
       <h1>Discord Projects</h1>
-      <p>Automation. Moderation. Innovation. These are my Discord bots — built to flex.</p>
+      <p>Custom Discord bots, moderation tools, utilities, and integrations.</p>
       <div class="btn-group">
         <a href="index.html" class="btn outline">← Back to Home</a>
       </div>
@@ -26,33 +26,31 @@
   <section class="projects">
     <div class="grid">
       <!-- Project 1 -->
-      <div class="card" onclick="openModal('discord-bot-1')">
-        <h3>Bot Army</h3>
-        <p>Multi-purpose bot: moderation, games, AI, tickets.</p>
+      <div class="card" onclick="openModal('discord-1')">
+        <h3>ModBot</h3>
+        <p>Advanced moderation bot with automated logs, warnings, and bans.</p>
       </div>
 
-      <!-- Add more Discord project cards here -->
+      <!-- More cards if needed -->
     </div>
   </section>
 
-  <!-- Modal Overlay -->
-  <div class="modal" id="discord-bot-1">
+  <!-- Modal -->
+  <div class="modal" id="discord-1">
     <div class="modal-content">
-      <span class="close" onclick="closeModal('discord-bot-1')">&times;</span>
-      <h2>Bot Army</h2>
-      <p>Custom-built all-in-one bot for Discord servers. Includes AI chat, moderation, music, tickets, XP, and more.</p>
-
-      <!-- Slider -->
+      <span class="close" onclick="closeModal('discord-1')">&times;</span>
+      <h2>ModBot</h2>
+      <p>A powerful moderation bot with advanced commands for banning, muting, logging activities, and more.</p>
       <div class="slider">
         <div class="slide active">
-          <img src="assets/discord-bot-1-1.png" alt="Bot screenshot 1">
+          <img src="assets/discord-1-1.png" alt="ModBot Screenshot 1">
         </div>
         <div class="slide">
-          <img src="assets/discord-bot-1-2.png" alt="Bot screenshot 2">
+          <img src="assets/discord-1-2.png" alt="ModBot Screenshot 2">
         </div>
         <div class="slide">
           <video controls>
-            <source src="assets/discord-bot-1.mp4" type="video/mp4">
+            <source src="assets/discord-1.mp4" type="video/mp4" />
           </video>
         </div>
         <div class="slider-nav">
@@ -108,7 +106,7 @@
     });
   </script>
 
-  <!-- Modal & Slider Script -->
+  <!-- Modal Script -->
   <script>
     function openModal(id) {
       document.getElementById(id).style.display = 'flex';
