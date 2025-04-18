@@ -42,21 +42,20 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  z-index: 2;
 }
 
-.hero h1 {
+.hero .content h1 {
   font-size: 4rem;
   font-weight: 900;
   color: #00ffc3;
   text-shadow: 0 0 20px #00ffc388;
 }
 
-.hero p {
+.hero .content p {
   font-size: 1.5rem;
   color: #bfbfbf;
   max-width: 700px;
-  margin-bottom: 2rem;
+  margin: 1.5rem 0;
 }
 
 .pfp {
@@ -66,12 +65,17 @@ body {
   border: 4px solid #00ffc3;
   object-fit: cover;
   box-shadow: 0 0 30px #00ffc340;
-  margin-bottom: 1rem;
+  transition: 0.3s ease;
+}
+
+.pfp:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 40px #00ffc3;
 }
 
 .btn-group {
   display: flex;
-  gap: 1.2rem;
+  gap: 1.5rem;
   flex-wrap: wrap;
   justify-content: center;
 }
@@ -81,10 +85,10 @@ body {
   background-color: #00ffc3;
   color: #000;
   font-weight: 600;
-  text-decoration: none;
   border-radius: 10px;
-  transition: all 0.3s ease;
+  text-decoration: none;
   box-shadow: 0 0 20px #00ffc340;
+  transition: 0.3s ease;
 }
 
 .btn:hover {
@@ -102,36 +106,56 @@ body {
   background-color: #00ffc310;
 }
 
-.about, .categories, .projects {
-  padding: 4rem 2rem;
+.categories h2,
+.projects h2 {
   text-align: center;
+  font-size: 2.5rem;
+  margin: 2rem 0 1rem;
+  color: #00ffc3;
 }
 
-h2 {
-  font-size: 2.5rem;
-  margin-bottom: 1.5rem;
+.category-grid {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  padding-bottom: 1rem;
+}
+
+.category-btn {
+  background: transparent;
+  border: 2px solid #00ffc3;
   color: #00ffc3;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.category-btn:hover {
+  background: #00ffc320;
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
-  margin-top: 2rem;
+  padding: 1rem 2rem;
 }
 
 .card {
   background-color: rgba(26, 26, 26, 0.9);
   padding: 2rem;
   border-radius: 12px;
-  box-shadow: 0 0 15px #00000055;
   cursor: pointer;
-  transition: 0.3s ease;
+  box-shadow: 0 0 15px #00000055;
+  transition: 0.4s ease;
 }
 
 .card:hover {
   background-color: #333;
-  transform: translateY(-5px);
+  transform: translateY(-8px);
 }
 
 .card h3 {
@@ -142,23 +166,16 @@ h2 {
 
 .card p {
   color: #aaa;
-}
-
-footer {
-  text-align: center;
-  padding: 2.5rem;
   font-size: 1rem;
-  color: #777;
-  background-color: rgba(10, 10, 10, 0.9);
-  margin-top: 4rem;
 }
 
-/* Modal & Slider */
 .modal {
   position: fixed;
-  top: 0; left: 0;
-  width: 100vw; height: 100vh;
-  background: rgba(0, 0, 0, 0.85);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000000dd;
   display: none;
   justify-content: center;
   align-items: center;
@@ -168,54 +185,64 @@ footer {
 .modal-content {
   background: #1a1a1a;
   padding: 2rem;
-  border-radius: 12px;
-  max-width: 700px;
+  border-radius: 10px;
   width: 90%;
-  text-align: center;
+  max-width: 800px;
   position: relative;
+  text-align: center;
 }
 
 .close-btn {
   position: absolute;
-  top: 15px; right: 20px;
-  font-size: 2rem;
-  color: #00ffc3;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
   cursor: pointer;
+  color: #fff;
 }
 
-.slider-wrapper {
+.media-slider {
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 1.5rem;
+  margin-top: 1rem;
 }
 
 .media-slider img,
 .media-slider video {
   width: 100%;
   max-height: 400px;
+  object-fit: contain;
   border-radius: 10px;
   display: none;
 }
 
-.nav-btn {
+.media-slider .prev,
+.media-slider .next {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   background: #00ffc3;
   color: #000;
   border: none;
-  font-size: 2rem;
-  padding: 0.5rem 1rem;
+  font-size: 1.5rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
   cursor: pointer;
-  border-radius: 8px;
-  opacity: 0.7;
+  z-index: 1;
 }
 
-#prevBtn { left: 10px; }
-#nextBtn { right: 10px; }
+.media-slider .prev {
+  left: 10px;
+}
 
-.nav-btn:hover {
-  opacity: 1;
+.media-slider .next {
+  right: 10px;
+}
+
+footer {
+  text-align: center;
+  padding: 2.5rem;
+  font-size: 1rem;
+  color: #777;
+  background-color: rgba(10, 10, 10, 0.9);
+  margin-top: 4rem;
 }
