@@ -4,31 +4,100 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Zoro | Dev Portfolio</title>
-  <link rel="stylesheet" href="styles/style.css" />
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <!-- Particle Background -->
+
+  <!-- Particles Background -->
   <div id="particles-js"></div>
 
   <!-- Hero Section -->
   <section class="hero">
     <div class="content">
-      <img src="assets/pfp.png" alt="Zoro" class="pfp" />
+      <img src="assets/pfp.png" alt="Zoro PFP" class="pfp"/>
       <h1>Zoro</h1>
-      <p>Full-Stack Dev | Discord Bots | Game Tools | Web Automations — 4+ Yrs Exp</p>
+      <p>Full-stack dev. 4+ yrs of Python, HTML, CSS, Java. I automate, build, deploy, and deliver results.</p>
       <div class="btn-group">
-        <a href="discord.html" class="btn">Discord Projects</a>
-        <a href="websites.html" class="btn outline">Web Projects</a>
-        <a href="games.html" class="btn">Game Projects</a>
-        <a href="tools.html" class="btn outline">Tools</a>
+        <a href="#categories" class="btn">Explore Categories</a>
+        <a href="https://discord.com/users/1357257822571855986" target="_blank" class="btn outline">Contact Me</a>
       </div>
     </div>
   </section>
 
-  <footer>&copy; 2025 Zoro | Built with Code, Caffeine & Chaos</footer>
+  <!-- About Section -->
+  <section class="about">
+    <h2>About Me</h2>
+    <p>I’m Zoro — a dev who crafts sharp tools for sharp people. Whether it’s Discord bots, slick web apps, or automation that saves hours — I do it fast, clean, and on point. Let the code do the flexing.</p>
+  </section>
 
-  <!-- Scripts -->
-  <script src="scripts/particles.min.js"></script>
-  <script src="scripts/particles-config.js"></script>
+  <!-- Categories Section -->
+  <section class="projects" id="categories">
+    <h2>Categories</h2>
+    <div class="grid">
+      <a href="discord.html" class="card">
+        <h3>Discord</h3>
+        <p>Custom bots, moderation systems, automation tools.</p>
+      </a>
+      <a href="website.html" class="card">
+        <h3>Websites</h3>
+        <p>Portfolios, landing pages, panels — aesthetic and fast.</p>
+      </a>
+      <a href="games.html" class="card">
+        <h3>Games</h3>
+        <p>Game overlays, HUDs, game-enhancing UIs.</p>
+      </a>
+      <a href="tools.html" class="card">
+        <h3>Tools</h3>
+        <p>Dashboards, scrapers, productivity & dev automation.</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Zoro | Built with brain and coffee
+  </footer>
+
+  <!-- Particle JS -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS("particles-js", {
+      "particles": {
+        "number": { "value": 90, "density": { "enable": true, "value_area": 800 } },
+        "color": { "value": "#00ffc3" },
+        "shape": { "type": "circle" },
+        "opacity": { "value": 0.6, "random": true },
+        "size": { "value": 3, "random": true },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#00ffc3",
+          "opacity": 0.3,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": 2,
+          "direction": "none",
+          "random": false,
+          "straight": false,
+          "bounce": false
+        }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": { "enable": true, "mode": "grab" },
+          "onclick": { "enable": true, "mode": "push" }
+        },
+        "modes": {
+          "grab": { "distance": 140, "line_linked": { "opacity": 0.5 } },
+          "push": { "particles_nb": 4 }
+        }
+      },
+      "retina_detect": true
+    });
+  </script>
+
 </body>
 </html>
