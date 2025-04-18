@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Zoro | Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Background -->
+  <div class="bg-overlay"></div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="content">
+      <img src="assets/pfp.png" alt="Zoro PFP" class="pfp"/>
+      <h1>Zoro</h1>
+      <p>Pro Developer & Programmer — 4+ Years of Python, HTML, CSS, Java</p>
+      <div class="btn-group">
+        <a href="#projects" class="btn">View My Work</a>
+        <a href="https://discord.com/users/1357257822571855986" target="_blank" class="btn outline">Contact Me</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="projects" id="projects">
+    <h2>My Projects</h2>
+    <div class="btn-group project-buttons">
+      <button class="btn" onclick="openModal('web1')">Project 1</button>
+      <button class="btn" onclick="openModal('web2')">Project 2</button>
+      <!-- Add more projects as needed -->
+    </div>
+  </section>
+
+  <!-- Modal: Project 1 -->
+  <div class="modal" id="web1">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('web1')">&times;</span>
+      <h2>Custom Dashboards</h2>
+      <p>Full-stack dashboards built with clean UI and API integration for dynamic data handling.</p>
+      <div class="media-slider">
+        <img src="assets/web1-1.png" alt="Dashboard Screenshot 1" />
+        <img src="assets/web1-2.png" alt="Dashboard Screenshot 2" />
+        <video controls>
+          <source src="assets/web1.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Project 2 -->
+  <div class="modal" id="web2">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('web2')">&times;</span>
+      <h2>Landing Page Systems</h2>
+      <p>High-conversion landing pages with animations, scroll effects, and responsive design.</p>
+      <div class="media-slider">
+        <img src="assets/web2-1.png" alt="Landing Page Screenshot" />
+        <video controls>
+          <source src="assets/web2.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
