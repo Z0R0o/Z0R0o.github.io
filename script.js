@@ -1,16 +1,18 @@
-// Background audio setup
-let audioInitialized = false;
-const audio = document.getElementById('bg-audio');
-
-function initAudioPlayback() {
-  if (!audioInitialized) {
-    audio.volume = 0.4;
-    audio.play().catch(() => {
-      console.warn("Audio blocked, waiting for user interaction...");
-    });
-    audioInitialized = true;
-  }
+// Open Modal Function
+function openModal(projectId) {
+  const modal = document.getElementById(projectId);
+  modal.style.display = 'flex';
 }
 
-document.body.addEventListener('click', initAudioPlayback);
-document.body.addEventListener('touchstart', initAudioPlayback);
+// Close Modal Function
+function closeModal(projectId) {
+  const modal = document.getElementById(projectId);
+  modal.style.display = 'none';
+}
+
+// Close modal if user clicks outside the modal content
+window.onclick = function(event) {
+  if (event.target.classList.contains('modal')) {
+    event.target.style.display = 'none';
+  }
+}
