@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Discord Projects | Zoro</title>
+  <link rel="stylesheet" href="styles/style.css" />
+</head>
+<body>
+  <div id="particles-js"></div>
+
+  <section class="category">
+    <h1>Discord Projects</h1>
+    <div class="grid">
+      <div class="card" onclick="openProject('bot-army')">
+        <h2>Bot Army</h2>
+        <p>Moderation, games, AI chat, ticket system & more.</p>
+      </div>
+      <div class="card" onclick="openProject('discord-dashboard')">
+        <h2>Discord Dashboard</h2>
+        <p>Full-featured web panel for bot + user control.</p>
+      </div>
+    </div>
+    <a href="index.html" class="btn back">← Back to Home</a>
+  </section>
+
+  <script src="scripts/particles.min.js"></script>
+  <script src="scripts/particles-config.js"></script>
+  <script>
+    function openProject(id) {
+      window.location.href = `project.html?id=${id}`;
+    }
+  </script>
+</body>
+</html>
