@@ -22,46 +22,73 @@ body {
   height: 100vh;
   background: url('assets/bg.png') no-repeat center center/cover;
   z-index: -1;
-  opacity: 0.2;
-  filter: blur(6px);
-  animation: backgroundMove 30s linear infinite;
+  opacity: 0.25;
+  filter: blur(8px);
+  animation: backgroundMove 60s linear infinite;
 }
 
-/* Header */
-header {
-  padding: 2rem;
+/* Hero Section */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
   text-align: center;
+  padding: 0 1rem;
 }
 
-header h1 {
-  font-size: 3rem;
+.hero .content {
+  max-width: 700px;
+  animation: fadeIn 1.2s ease;
+}
+
+.pfp {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 3px solid #00ffc3;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 0 20px #00ffc340;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
   color: #00ffc3;
-  text-shadow: 0 0 20px #00ffc3aa;
+  text-shadow: 0 0 25px #00ffc3aa;
   animation: glow 2s infinite alternate;
 }
 
-.back-btn {
-  display: inline-block;
-  margin-top: 1rem;
+.hero p {
+  color: #bbb;
+  font-size: 1.2rem;
+  margin: 1rem 0 2rem;
 }
 
 /* Buttons */
+.btn-group {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
 .btn {
-  padding: 1rem 2rem;
+  padding: 0.9rem 2rem;
   background: #00ffc3;
-  color: #111;
+  color: #0e0e0e;
   border: none;
   border-radius: 8px;
-  font-weight: bold;
+  font-weight: 600;
   text-transform: uppercase;
   text-decoration: none;
+  cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 0 15px #00ffc360;
 }
 
 .btn:hover {
   background: #0affd1;
-  transform: translateY(-3px);
+  transform: translateY(-3px) scale(1.03);
   box-shadow: 0 0 30px #00ffc380;
 }
 
@@ -72,12 +99,21 @@ header h1 {
 }
 
 .btn.outline:hover {
-  background: #00ffc312;
+  background: #00ffc320;
+  color: #fff;
 }
 
-/* Projects */
+/* Projects Section */
 .projects {
-  padding: 2rem;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.projects h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #00ffc3;
+  text-shadow: 0 0 15px #00ffc340;
 }
 
 .grid {
@@ -88,31 +124,35 @@ header h1 {
 }
 
 .card {
-  background: #1a1a1a;
+  background: #151515;
   padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 0 20px #00ffc320;
+  border-radius: 14px;
+  box-shadow: 0 0 25px #00ffc310;
   cursor: pointer;
   transition: all 0.3s ease;
+  border: 1px solid #00ffc315;
+  backdrop-filter: blur(2px);
 }
 
 .card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 0 30px #00ffc340;
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 0 35px #00ffc350;
+  border-color: #00ffc340;
 }
 
 .card h3 {
   color: #00ffc3;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
   font-size: 1.6rem;
 }
 
 .card p {
   color: #ccc;
   font-size: 1rem;
+  line-height: 1.5;
 }
 
-/* Modal */
+/* Modal (kept in case needed later) */
 .modal {
   position: fixed;
   top: 0;
@@ -120,7 +160,7 @@ header h1 {
   display: none;
   width: 100vw;
   height: 100vh;
-  background: rgba(0,0,0,0.8);
+  background: rgba(0, 0, 0, 0.85);
   justify-content: center;
   align-items: center;
   z-index: 100;
@@ -131,7 +171,7 @@ header h1 {
   padding: 2.5rem;
   border-radius: 14px;
   text-align: center;
-  box-shadow: 0 0 25px #00ffc370;
+  box-shadow: 0 0 30px #00ffc380;
   max-width: 850px;
   width: 90%;
   animation: fadeIn 0.5s ease;
@@ -176,7 +216,7 @@ header h1 {
 /* Animations */
 @keyframes glow {
   0% { text-shadow: 0 0 10px #00ffc3; }
-  100% { text-shadow: 0 0 25px #00ffc3; }
+  100% { text-shadow: 0 0 30px #00ffc3; }
 }
 
 @keyframes fadeIn {
