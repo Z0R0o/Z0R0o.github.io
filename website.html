@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Zoro | Website Projects</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- Particles Background -->
+  <div id="particles-js"></div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="content">
+      <h1>Website Projects</h1>
+      <p>Fast, clean, responsive — from landing pages to full-stack dashboards.</p>
+      <div class="btn-group">
+        <a href="index.html" class="btn outline">← Back to Home</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Grid -->
+  <section class="projects">
+    <div class="grid">
+      <!-- Project 1 -->
+      <div class="card" onclick="openModal('site-1')">
+        <h3>Portfolio Engine</h3>
+        <p>Animated personal site with sliders, particles, and media embeds.</p>
+      </div>
+
+      <!-- More cards if needed -->
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div class="modal" id="site-1">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('site-1')">&times;</span>
+      <h2>Portfolio Engine</h2>
+      <p>Full responsive multi-page portfolio with interactive modals, sliders, animations, and clean UI for devs.</p>
+      <div class="slider">
+        <div class="slide active">
+          <img src="assets/site-1-1.png" alt="Screenshot 1">
+        </div>
+        <div class="slide">
+          <img src="assets/site-1-2.png" alt="Screenshot 2">
+        </div>
+        <div class="slide">
+          <video controls>
+            <source src="assets/site-1.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <div class="slider-nav">
+          <button onclick="plusSlide(-1)">❮</button>
+          <button onclick="plusSlide(1)">❯</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Zoro | Web Projects Division
+  </footer>
+
+  <!-- Particles -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS("particles-js", {
+      "particles": {
+        "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+        "color": { "value": "#00ffc3" },
+        "shape": { "type": "circle" },
+        "opacity": { "value": 0.5 },
+        "size": { "value": 3, "random": true },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#00ffc3",
+          "opacity": 0.3,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": 2,
+          "direction": "none",
+          "random": false,
+          "straight": false,
+          "bounce": false
+        }
+      },
+      "interactivity": {
+        "events": {
+          "onhover": { "enable": true, "mode": "grab" },
+          "onclick": { "enable": true, "mode": "push" }
+        },
+        "modes": {
+          "grab": { "distance": 140, "line_linked": { "opacity": 0.4 } },
+          "push": { "particles_nb": 4 }
+        }
+      },
+      "retina_detect": true
+    });
+  </script>
+
+  <!-- Modal Script -->
+  <script>
+    function openModal(id) {
+      document.getElementById(id).style.display = 'flex';
+      currentSlide = 0;
+      showSlide(currentSlide);
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).style.display = 'none';
+    }
+
+    let currentSlide = 0;
+    function plusSlide(n) {
+      showSlide(currentSlide += n);
+    }
+
+    function showSlide(n) {
+      let slides = document.querySelectorAll('.modal:target .slide');
+      if (slides.length === 0) return;
+
+      if (n >= slides.length) currentSlide = 0;
+      if (n < 0) currentSlide = slides.length - 1;
+
+      slides.forEach(s => s.classList.remove('active'));
+      slides[currentSlide].classList.add('active');
+    }
+  </script>
+</body>
+</html>
