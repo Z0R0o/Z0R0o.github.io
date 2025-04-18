@@ -3,32 +3,137 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Discord Projects | Zoro</title>
-  <link rel="stylesheet" href="styles/style.css" />
+  <title>Zoro | Discord Projects</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
+
+  <!-- Particles Background -->
   <div id="particles-js"></div>
 
-  <section class="category">
-    <h1>Discord Projects</h1>
-    <div class="grid">
-      <div class="card" onclick="openProject('bot-army')">
-        <h2>Bot Army</h2>
-        <p>Moderation, games, AI chat, ticket system & more.</p>
-      </div>
-      <div class="card" onclick="openProject('discord-dashboard')">
-        <h2>Discord Dashboard</h2>
-        <p>Full-featured web panel for bot + user control.</p>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="content">
+      <h1>Discord Projects</h1>
+      <p>Automation. Moderation. Innovation. These are my Discord bots — built to flex.</p>
+      <div class="btn-group">
+        <a href="index.html" class="btn outline">← Back to Home</a>
       </div>
     </div>
-    <a href="index.html" class="btn back">← Back to Home</a>
   </section>
 
-  <script src="scripts/particles.min.js"></script>
-  <script src="scripts/particles-config.js"></script>
+  <!-- Projects Grid -->
+  <section class="projects">
+    <div class="grid">
+      <!-- Project 1 -->
+      <div class="card" onclick="openModal('discord-bot-1')">
+        <h3>Bot Army</h3>
+        <p>Multi-purpose bot: moderation, games, AI, tickets.</p>
+      </div>
+
+      <!-- Add more Discord project cards here -->
+    </div>
+  </section>
+
+  <!-- Modal Overlay -->
+  <div class="modal" id="discord-bot-1">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('discord-bot-1')">&times;</span>
+      <h2>Bot Army</h2>
+      <p>Custom-built all-in-one bot for Discord servers. Includes AI chat, moderation, music, tickets, XP, and more.</p>
+
+      <!-- Slider -->
+      <div class="slider">
+        <div class="slide active">
+          <img src="assets/discord-bot-1-1.png" alt="Bot screenshot 1">
+        </div>
+        <div class="slide">
+          <img src="assets/discord-bot-1-2.png" alt="Bot screenshot 2">
+        </div>
+        <div class="slide">
+          <video controls>
+            <source src="assets/discord-bot-1.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="slider-nav">
+          <button onclick="plusSlide(-1)">❮</button>
+          <button onclick="plusSlide(1)">❯</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Zoro | Discord Projects Division
+  </footer>
+
+  <!-- Particles -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script>
-    function openProject(id) {
-      window.location.href = `project.html?id=${id}`;
+    particlesJS("particles-js", {
+      "particles": {
+        "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+        "color": { "value": "#00ffc3" },
+        "shape": { "type": "circle" },
+        "opacity": { "value": 0.5 },
+        "size": { "value": 3, "random": true },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#00ffc3",
+          "opacity": 0.3,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": 2,
+          "direction": "none",
+          "random": false,
+          "straight": false,
+          "bounce": false
+        }
+      },
+      "interactivity": {
+        "events": {
+          "onhover": { "enable": true, "mode": "grab" },
+          "onclick": { "enable": true, "mode": "push" }
+        },
+        "modes": {
+          "grab": { "distance": 140, "line_linked": { "opacity": 0.4 } },
+          "push": { "particles_nb": 4 }
+        }
+      },
+      "retina_detect": true
+    });
+  </script>
+
+  <!-- Modal & Slider Script -->
+  <script>
+    function openModal(id) {
+      document.getElementById(id).style.display = 'flex';
+      currentSlide = 0;
+      showSlide(currentSlide);
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).style.display = 'none';
+    }
+
+    let currentSlide = 0;
+    function plusSlide(n) {
+      showSlide(currentSlide += n);
+    }
+
+    function showSlide(n) {
+      let slides = document.querySelectorAll('.modal:target .slide');
+      if (slides.length === 0) return;
+
+      if (n >= slides.length) currentSlide = 0;
+      if (n < 0) currentSlide = slides.length - 1;
+
+      slides.forEach(s => s.classList.remove('active'));
+      slides[currentSlide].classList.add('active');
     }
   </script>
 </body>
