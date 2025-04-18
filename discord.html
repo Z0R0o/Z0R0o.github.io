@@ -4,135 +4,52 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Zoro | Discord Projects</title>
-  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- Particles Background -->
-  <div id="particles-js"></div>
+  <!-- Background -->
+  <div class="bg-overlay"></div>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="content">
-      <h1>Discord Projects</h1>
-      <p>Custom Discord bots, moderation tools, utilities, and integrations.</p>
-      <div class="btn-group">
-        <a href="index.html" class="btn outline">← Back to Home</a>
-      </div>
-    </div>
-  </section>
+  <!-- Header -->
+  <header class="page-header">
+    <h1>Discord Projects</h1>
+    <a href="index.html" class="btn outline back-btn">Back to Home</a>
+  </header>
 
   <!-- Projects Grid -->
   <section class="projects">
     <div class="grid">
+
       <!-- Project 1 -->
-      <div class="card" onclick="openModal('discord-1')">
-        <h3>ModBot</h3>
-        <p>Advanced moderation bot with automated logs, warnings, and bans.</p>
+      <div class="card" onclick="openModal('discord1')">
+        <h3>Bot Army</h3>
+        <p>Advanced Discord bots with moderation, games, tickets, AI, and more.</p>
       </div>
 
-      <!-- More cards if needed -->
+      <!-- Add more Discord projects below -->
+
     </div>
   </section>
 
-  <!-- Modal -->
-  <div class="modal" id="discord-1">
+  <!-- Modal: Discord Project 1 -->
+  <div class="modal" id="discord1">
     <div class="modal-content">
-      <span class="close" onclick="closeModal('discord-1')">&times;</span>
-      <h2>ModBot</h2>
-      <p>A powerful moderation bot with advanced commands for banning, muting, logging activities, and more.</p>
-      <div class="slider">
-        <div class="slide active">
-          <img src="assets/discord-1-1.png" alt="ModBot Screenshot 1">
-        </div>
-        <div class="slide">
-          <img src="assets/discord-1-2.png" alt="ModBot Screenshot 2">
-        </div>
-        <div class="slide">
-          <video controls>
-            <source src="assets/discord-1.mp4" type="video/mp4" />
-          </video>
-        </div>
-        <div class="slider-nav">
-          <button onclick="plusSlide(-1)">❮</button>
-          <button onclick="plusSlide(1)">❯</button>
-        </div>
+      <span class="close" onclick="closeModal('discord1')">&times;</span>
+      <h2>Bot Army</h2>
+      <p>All-in-one bot solution with features for every server need.</p>
+      
+      <div class="media-slider">
+        <img src="assets/discord1-1.png" alt="Bot Army Screenshot 1" />
+        <img src="assets/discord1-2.png" alt="Bot Army Screenshot 2" />
+        <video controls>
+          <source src="assets/discord1.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
       </div>
     </div>
   </div>
 
-  <!-- Footer -->
-  <footer>
-    &copy; 2025 Zoro | Discord Projects Division
-  </footer>
-
-  <!-- Particles -->
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-  <script>
-    particlesJS("particles-js", {
-      "particles": {
-        "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
-        "color": { "value": "#00ffc3" },
-        "shape": { "type": "circle" },
-        "opacity": { "value": 0.5 },
-        "size": { "value": 3, "random": true },
-        "line_linked": {
-          "enable": true,
-          "distance": 150,
-          "color": "#00ffc3",
-          "opacity": 0.3,
-          "width": 1
-        },
-        "move": {
-          "enable": true,
-          "speed": 2,
-          "direction": "none",
-          "random": false,
-          "straight": false,
-          "bounce": false
-        }
-      },
-      "interactivity": {
-        "events": {
-          "onhover": { "enable": true, "mode": "grab" },
-          "onclick": { "enable": true, "mode": "push" }
-        },
-        "modes": {
-          "grab": { "distance": 140, "line_linked": { "opacity": 0.4 } },
-          "push": { "particles_nb": 4 }
-        }
-      },
-      "retina_detect": true
-    });
-  </script>
-
-  <!-- Modal Script -->
-  <script>
-    function openModal(id) {
-      document.getElementById(id).style.display = 'flex';
-      currentSlide = 0;
-      showSlide(currentSlide);
-    }
-
-    function closeModal(id) {
-      document.getElementById(id).style.display = 'none';
-    }
-
-    let currentSlide = 0;
-    function plusSlide(n) {
-      showSlide(currentSlide += n);
-    }
-
-    function showSlide(n) {
-      let slides = document.querySelectorAll('.modal:target .slide');
-      if (slides.length === 0) return;
-
-      if (n >= slides.length) currentSlide = 0;
-      if (n < 0) currentSlide = slides.length - 1;
-
-      slides.forEach(s => s.classList.remove('active'));
-      slides[currentSlide].classList.add('active');
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
