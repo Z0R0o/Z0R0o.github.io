@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(45deg, #111, #222);
+  color: #f0f0f0;
+  overflow-x: hidden;
+  line-height: 1.6;
+  position: relative;
+}
+
+/* Particle Container */
+#particles-js {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+}
+
+/* Background Overlay */
+.bg-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url('assets/bg.png') no-repeat center center/cover;
+  z-index: -1;
+  opacity: 0.25;
+  filter: blur(6px);
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(15px);
+  border-radius: 12px;
+  padding: 2rem;
+}
+
+.hero .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero .content h1 {
+  font-size: 4rem;
+  font-weight: 900;
+  margin: 1rem 0;
+  color: #00ffc3;
+  text-shadow: 0 0 20px #00ffc388;
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+.hero .content p {
+  font-size: 1.3rem;
+  max-width: 800px;
+  color: #ccc;
+  margin-bottom: 2rem;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+/* PFP */
+.pfp {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 4px solid #00ffc3;
+  object-fit: cover;
+  box-shadow: 0 0 30px #00ffc340;
+  transition: transform 0.3s, box-shadow 0.3s ease;
+}
+.pfp:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 40px #00ffc3;
+}
+
+/* Button Group */
+.btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+.btn {
+  padding: 1rem 2rem;
+  background-color: #00ffc3;
+  color: #000;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 20px #00ffc340;
+}
+.btn:hover {
+  transform: translateY(-4px);
+  background-color: #00ffd8;
+}
+.btn.outline {
+  background: transparent;
+  color: #00ffc3;
+  border: 2px solid #00ffc3;
+}
+.btn.outline:hover {
+  background: #00ffc311;
+  box-shadow: 0 0 15px #00ffc360;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
