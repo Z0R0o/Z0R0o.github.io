@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /script.28s91.min.js
+Disallow: /style.3ks01.min.css
+Disallow: /assets/
