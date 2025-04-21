@@ -17,7 +17,7 @@
 
   <!-- SECURITY HEADERS -->
   <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self'; font-src 'self'; object-src 'none'; base-uri 'none';">
+        content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self'; font-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none';">
   <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains; preload">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta http-equiv="X-Frame-Options" content="DENY">
@@ -29,11 +29,8 @@
   <title>Zoro | Portfolio</title>
 
   <!-- LINK TO RENAMED + OBFUSCATED FILES -->
-  <link rel="stylesheet" href="style.3ks01.min.css">
-  <script src="bot-b3887d0f.min.js"></script>
-<script src="fingerprint-3a995907.min.js"></script>
-<script src="debug-c9425406.min.js"></script>
-  <script src="script.28s91.min.js" defer></script>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 </head>
 <body>
@@ -59,18 +56,18 @@
     <h2>My Projects</h2>
     <div class="grid">
       <!-- Project Cards -->
-      <div class="card" onclick="window.open('https://github.com/Z0R0o/Ghost-view','_blank')">
+      <div class="card" data-url="https://github.com/Z0R0o/Ghost-view">
         <h3>Project 1</h3>
         <p>Ghostview Tool For Capturing Your Moments </p>
       </div>
-      <div class="card" onclick="window.open('https://github.com/Z0R0o/space-blaster','_blank')">
+      <div class="card" data-url="https://github.com/Z0R0o/space-blaster">
         <h3>Project 2</h3>
-        <p>Basic Space Blaster Game Fully Codded In Python.</p>
+        <p>Basic Space Blaster Game Fully Coded In Python.</p>
       </div>
-      <div class="card" onclick="window.open('https://github.com/Z0R0o/Discord-AI-Chatbot','_blank')">
+      <div class="card" data-url="https://github.com/Z0R0o/Discord-AI-Chatbot">
         <h3>Project 3</h3>
-        <p>AI-Powered discord assistant, stores data too.</p>
-      </div>
+        <p>AI-Powered Discord assistant, stores data too.</p>
+      </div>      
     </div>
   </section>
 
@@ -78,5 +75,7 @@
   <audio autoplay loop hidden>
     <source src="assets/bg-audio.mp3" type="audio/mp3">
   </audio>
+
+  <script src="script.js"></script>
 </body>
 </html>
